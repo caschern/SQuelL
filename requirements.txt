@@ -1,0 +1,9 @@
+flask
+pandas
+gunicorn
+sklearn
+scikit-image
+nltk
+ddtrace
+flask_assets
+python-dotenv
