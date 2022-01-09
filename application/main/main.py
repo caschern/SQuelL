@@ -3,6 +3,9 @@ from flask import Blueprint, render_template
 from flask import current_app as app
 import re, json
 from flask import Flask
+import flask
+import re, json
+from flask import Flask
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -15,7 +18,9 @@ from sklearn.model_selection import GridSearchCV
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score,precision_score,recall_score,confusion_matrix,roc_curve,classification_report
 from scikitplot.metrics import plot_confusion_matrix
-
+from application.api import create_dataframe1
+from application.api import create_dataframe2
+from application.api import create_dataframe3
 
 # Blueprint Configuration
 main_bp = Blueprint(
@@ -24,6 +29,14 @@ main_bp = Blueprint(
     static_folder='static'
 )
 
+test = create_dataframe1()
+train = create_dataframe2()
+val = create_dataframe3()
+
+
+def sentiResp():
+    sigma = 'hi'
+    return sigma
 
 @main_bp.route('/', methods=['GET', 'POST'])
 def main():
@@ -41,7 +54,8 @@ def main():
         list1 = re.split('\s+', user_input_text)    
         print(list1)
         j=0
-        squell_response = "so you've arrived..."
+        
+        squell_response = sentiResp()
         
         return flask.render_template('main.html', 
             input_text=user_input_text,
