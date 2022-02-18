@@ -12,3 +12,7 @@ sklearn
 scikit-image
 scikit-plot
 wordcloud
+lesscpy 
+cssmin 
+jsmin
+numba

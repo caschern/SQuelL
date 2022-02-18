@@ -14,6 +14,7 @@ def init_app():
     with app.app_context():
         # Import parts of our application
         from .main import main
+        from . import routes
         from .assets import compile_static_assets
 
         # Register Blueprints

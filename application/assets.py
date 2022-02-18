@@ -19,6 +19,11 @@ def compile_static_assets(assets):
         output='dist/css/main.css',
         extra={'rel': 'stylesheet/less'}
     )
+    main_js_bundle = Bundle(
+        'src/js/main.js',
+        filters='jsmin',
+        output='dist/js/main.min.js'
+    )
     profile_style_bundle = Bundle(
         'profile_bp/less/profile.less',
         filters='less,cssmin',
@@ -27,9 +32,11 @@ def compile_static_assets(assets):
     )
     assets.register('common_style_bundle', common_style_bundle)
     assets.register('home_style_bundle', main_style_bundle)
+    assets.register('main_js', main_js_bundle)
     assets.register('profile_style_bundle', profile_style_bundle)
     if app.config['FLASK_ENV'] == 'development':
         common_style_bundle.build()
         main_style_bundle.build()
+        main_js_bundle.build()
         profile_style_bundle.build()
     return assets

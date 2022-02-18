@@ -3,7 +3,16 @@ from flask import Flask
 from flask_assets import Environment
 import os 
 from flask import send_from_directory  
+"""Routes for main pages."""
+from flask import Blueprint
 
+
+main_bp = Blueprint(
+    'main_bp',
+    __name__,
+    template_folder='templates',
+    static_folder='static'
+)
 
 
 def create_app():
