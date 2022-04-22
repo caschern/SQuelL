@@ -1,11 +1,9 @@
 import flask
 from flask import Blueprint, render_template
 from flask import current_app as app
-import re, json
 from flask import Flask
-import flask
+from flask_sqlalchemy import SQLAlchemy
 import re, json
-from flask import Flask
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
