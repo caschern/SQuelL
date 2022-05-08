@@ -17,3 +17,4 @@ cssmin
 jsmin
 numba
 pymyspl
+mysqlclient

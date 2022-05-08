@@ -2,7 +2,6 @@ import flask
 from flask import Blueprint, render_template
 from flask import current_app as app
 from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
 import re, json
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -40,6 +39,9 @@ def sentiResp():
 def main():
     """mainpage."""
     products = 'zeta'
+    
+
+
     if flask.request.method == 'GET':
         # Just render the initial form, to get input
         return(flask.render_template('main.html'))

@@ -25,6 +25,6 @@ class Config:
     COMPRESSOR_DEBUG = environ.get("COMPRESSOR_DEBUG")
 
     # Database
-    SQLALCHEMY_DATABASE_URI = environ.get("mysql:database-1.csfsqzotuab1.us-east-1.rds.amazonaws.com://admin:TTyuiReeh1!Tell@localhost:3306/database-1")
+    SQLALCHEMY_DATABASE_URI = environ.get('DEV_DATABASE_URL') or 'mysql://admin:TTyuiReeh1!Tell@database-1.csfsqzotuab1.us-east-1.rds.amazonaws.com:3306/'
     SQLALCHEMY_ECHO = False
     SQLALCHEMY_TRACK_MODIFICATIONS = False

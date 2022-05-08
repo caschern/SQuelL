@@ -1,4 +1,5 @@
-from .main import db
+from .main import main
+from main import db
 
 class User(db.model):
     """Data model for user accounts"""
