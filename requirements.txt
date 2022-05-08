@@ -16,3 +16,4 @@ lesscpy
 cssmin 
 jsmin
 numba
+pymyspl
