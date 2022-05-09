@@ -39,6 +39,9 @@
 		<div></div>
 		<div></div>
 		<div style = "padding: 10px;">
+			{% if input_text == NULL %}
+				<h6 style = "font-style: italic;"><b>Type your username then phrase seperated by a comma to begin.</b></h6>
+			{% endif %}
 			{% if input_text %} 
 				<h6 style = "font-style: italic;"><b>Last Response: </b>{{ input_text }}</h6> 
 			{% endif %}

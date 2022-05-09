@@ -1,7 +1,6 @@
-from .main import main
-from main import db
+from . import db
 
-class User(db.model):
+class User(db.Model):
     """Data model for user accounts"""
 
     __tablename__ = 'flasksqlalchemy-tutorial-users'
@@ -15,26 +14,14 @@ class User(db.model):
         unique=True,
         nullable=False
     )
-    email = db.Column(
-        db.String(80),
-        index=False,
+    phrase = db.Column(
+        db.String(200),
+        index=True,
         unique=True,
         nullable = False
     )
     created = db.Column(
-        db.DataTime,
-        index=False,
-        unique=False,
-        nullable=False
-    )
-    bio = db.Column(
-        db.Text,
-        index=False,
-        unique=False,
-        nullable=True
-    )
-    admin = db.Column(
-        db.Boolean,
+        db.DateTime,
         index=False,
         unique=False,
         nullable=False
