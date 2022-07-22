@@ -26,11 +26,11 @@
 		</div>
 		<div style = "padding-top: 20px;padding-bottom: 20px;">
 			<div style = "width: 100%; height: 90%; border: 1px;">{% if squell_response %}{{squell_response}}{% endif %}</div>
-			<form method="POST">
+			<form method="POST" id="todo-form">
 				<fieldset>
 					<div style = "font-weight: 500;">
 						<!--<legend>Input Text:</legend>-->
-						<input name="user_input_text" style = "width: 100%" type="text" required>
+						<input name="user_input_text" style = "width: 100%" type='text' id="todo" required>
 						<input type="submit" value="Respond">
 					</div>
 				</fieldset> 
@@ -72,6 +72,28 @@
 			padding: 10px;
 		}
 	</style>
+	<script src="https://code.jquery.com/jquery-3.5.1.js"
+	integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+	crossorigin="anonymous"></script>
+
+<script type="text/javascript">
+	$(document).on('submit','#todo-form',function(e)
+				{
+		console.log('hello');
+		e.preventDefault();
+		$.ajax({
+  			type:'POST',
+			url:'/',
+			data:{
+				todo:$("#todo").val()
+  			},
+  		success:function()
+  		{
+			alert('saved');
+  		}
+	})
+});
+</script>
 </body>
 </html>
 {% endblock %}

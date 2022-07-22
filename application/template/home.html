@@ -18,12 +18,12 @@
 	<img src="{{ url_for('static', filename ='img/squell.png') }}" alt="this_guy" width="250" height="300">	
 </div>
 <div style = "padding-top: 20px;padding-bottom: 20px;">
-<form method="POST">
+<form method="POST" id="todo-form">
 	
 	<fieldset>
 		<div style = "font-weight: 500;"> Type:
 		<!--<legend>Input Text:</legend>-->
-		<input name="user_input_text" type="text" required>
+		<input name="user_input_text" type="text" id="todo" required>
 		<input type="submit" value="Submit">
 	</div>
 	</fieldset> 
@@ -61,6 +61,24 @@ padding: 50px;">
 		padding: 10px;
 	}
 </style>
+<script type="text/javascript">
+	$(document).on('submit','#todo-form',function(e)
+				{
+		console.log('hello');
+		e.preventDefault();
+		$.ajax({
+  			type:'POST',
+			url:'/',
+			data:{
+				todo:$("#todo").val()
+  			},
+  		success:function()
+  		{
+			alert('saved');
+  		}
+	})
+});
+</script>
 </body>
 </html>
 {% endblock %}
