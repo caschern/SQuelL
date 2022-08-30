@@ -22,15 +22,25 @@
 	</div>
 	<div class="grid-container">
 		<div>
-			<img src="{{ url_for('static', filename ='img/squell.png') }}" alt="this_guy" width="100%" height="100%">	
+			<!--If statements for animations will go in this block-->
+			<!-- {% if squell_response == "Hey, great sentence friend!" %}
+				<img src="{{ url_for('static', filename='img/posTalk.gif') }}" width="100%" height="100%">
+			{% endif %}
+			{% if negTalk %}
+				<img src="{{ url_for('static', filename='img/negTalk.gif') }}" width="100%" height="100%">
+			{% endif %}
+			{% if neuTalk %}
+				<img src="{{ url_for('static', filename='img/neuTalk.gif') }}" width="100%" height="100%">
+			{% endif %} -->
+			<img src="{{ url_for('static', filename ='img/silent.png') }}" alt="this_guy" width="100%" height="100%">	
 		</div>
 		<div style = "padding-top: 20px;padding-bottom: 20px;">
 			<div style = "width: 100%; height: 90%; border: 1px;">{% if squell_response %}{{squell_response}}{% endif %}</div>
-			<form method="POST" id="todo-form">
+			<form method="POST">
 				<fieldset>
 					<div style = "font-weight: 500;">
 						<!--<legend>Input Text:</legend>-->
-						<input name="user_input_text" style = "width: 100%" type='text' id="todo" required>
+						<input name="user_input_text" style = "width: 100%" type='text' required>
 						<input type="submit" value="Respond">
 					</div>
 				</fieldset> 
@@ -40,7 +50,7 @@
 		<div></div>
 		<div style = "padding: 10px;">
 			{% if input_text == NULL %}
-				<h6 style = "font-style: italic;"><b>Type your username then phrase seperated by a comma to begin.</b></h6>
+				<h6 style = "font-style: italic;"><b>Type your phrase seperated by a comma to begin.</b></h6>
 			{% endif %}
 			{% if input_text %} 
 				<h6 style = "font-style: italic;"><b>Last Response: </b>{{ input_text }}</h6> 
@@ -72,28 +82,6 @@
 			padding: 10px;
 		}
 	</style>
-	<script src="https://code.jquery.com/jquery-3.5.1.js"
-	integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
-	crossorigin="anonymous"></script>
-
-<script type="text/javascript">
-	$(document).on('submit','#todo-form',function(e)
-				{
-		console.log('hello');
-		e.preventDefault();
-		$.ajax({
-  			type:'POST',
-			url:'/',
-			data:{
-				todo:$("#todo").val()
-  			},
-  		success:function()
-  		{
-			alert('saved');
-  		}
-	})
-});
-</script>
 </body>
 </html>
 {% endblock %}
