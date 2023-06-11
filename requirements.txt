@@ -1,4 +1,3 @@
-ddtrace
 flask
 flask_assets
 gunicorn
@@ -7,14 +6,17 @@ nltk
 pandas
 python-dotenv
 re
-seaborn
 sklearn
 scikit-image
 scikit-plot
-wordcloud
 lesscpy 
 cssmin 
 jsmin
-numba
-pymyspl
-mysqlclient
+flask_sqlalchemy
+dotenv
+datetime
+collections
+pprint
+sklearn
+os
+urllib

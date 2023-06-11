@@ -38,29 +38,3 @@ def create_app():
         compile_static_assets(assets)  # Execute logic
 
         return app
-
-
-def user_records(array):
-    left=[]
-    right=[]
-    for i in array:
-        while i != ',':
-            left.append(i)
-    for i in range(len(left), len(array)-1):
-        right.append(i)
-    for i in right:
-        print(i)
-
-'''
-    username = request.args.get('user')
-    phrase = request.args.get('phrase')
-    if username and phrase:
-        new_user = User(
-            username = username,
-            phrase = phrase,
-            created=dt.now(),
-            admin=False
-        )
-        db.session.add(new_user)  # Adds new User record to database
-        db.session.commit()
-    return make_response(f"{new_user} successfully created!")       # Commits all changes'''
