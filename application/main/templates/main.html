@@ -29,13 +29,13 @@
 	</div>
 	<div class="grid-container">
 		<div>
-			 {% if squell_response == "Hey, great sentence friend!" %}
+			 {% if squell_response == "Hey, great sentence friend! your sentence score is " %}
 				<img src="{{ url_for('static', filename='img/posTalk.gif') }}" id="myImage" width="100%" height="100%">
 			{% endif %}
-			{% if squell_response == "Shocking you say this!" %}
+			{% if squell_response == "Shocking sentence! your sentence score is " %}
 				<img src="{{ url_for('static', filename='img/negTalk.gif') }}" id="myImage" width="100%" height="100%">
 			{% endif %}
-			{% if squell_response == "Interesting sentence..." %}
+			{% if squell_response == "Interesting sentence... your sentence score is " %}
 				<img src="{{ url_for('static', filename='img/nueTalk.gif') }}" id="myImage" width="100%" height="100%">
 			{% endif %} 
 			{% if squell_response == NULL %}
@@ -44,10 +44,12 @@
 			{% if squell_response == "Letters and words in the sentence only please!" %}
 				<img src="{{ url_for('static', filename ='img/posTalk.gif') }}" id="myImage" width="100%" height="100%">
 			{% endif %} 
-			<!--<img src="{{ url_for('static', filename ='img/silent.png') }}" id="myImage" alt="this_guy" width="100%" height="100%">-->
 		</div>
 		<div style = "padding-top: 20px;padding-bottom: 20px;">
-			<div style = "width: 100%; height: 90%; border: 1px;">{% if squell_response %}{{squell_response}}{% endif %}</div>
+			<div style = "width: 100%; height: 90%; border: 1px;">
+				{% if squell_response %}{{squell_response}}{% endif %}
+				{% if phraseScore %}{{phraseScore}}{% endif %}
+			</div>
 			<form method="POST">
 				<fieldset>
 					<div style = "font-weight: 500;">
@@ -62,7 +64,7 @@
 		<div></div>
 		<div style = "padding: 10px;">
 			{% if input_text == NULL %}
-				<h6 style = "font-style: italic;"><b>Type your phrase seperated by a comma to begin.</b></h6>
+				<h6 style = "font-style: italic;"><b>Type your phrase to begin.</b></h6>
 			{% endif %}
 			{% if input_text %} 
 				<h6 style = "font-style: italic;"><b>Last Response: </b>{{ input_text }}</h6> 
